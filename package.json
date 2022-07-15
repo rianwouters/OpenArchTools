@@ -1,0 +1,24 @@
+{
+  "name": "openarchtools",
+  "version": "1.0.0",
+  "description": "Toolset for using Open Archieven",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rianwouters/OpenArchTools.git"
+  },
+  "author": "Rian Wouters",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rianwouters/OpenArchTools/issues"
+  },
+  "homepage": "https://github.com/rianwouters/OpenArchTools#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "object.map": "^1.0.1"
+  },
+  "type": "module"
+}
