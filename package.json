@@ -2,9 +2,11 @@
   "name": "openarchtools",
   "version": "1.0.0",
   "description": "Toolset for using Open Archieven",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-specifier-resolution=node lib/app.js"
   },
   "repository": {
     "type": "git",
@@ -16,9 +18,16 @@
     "url": "https://github.com/rianwouters/OpenArchTools/issues"
   },
   "homepage": "https://github.com/rianwouters/OpenArchTools#readme",
-  "dependencies": {
-    "axios": "^0.27.2",
-    "object.map": "^1.0.1"
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "^18.0.6",
+    "typescript": "^4.8.0-dev.20220718"
   },
-  "type": "module"
+  "type": "module",
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
