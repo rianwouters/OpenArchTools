@@ -1,12 +1,13 @@
 import Archive from '../Archive.js';
-import EventRecord from '../EventRecord.js';
+import Record from '../Record.js';
 import OAPerson from './OAPerson.js';
-import A2AEventRecord from '../A2A/A2AEventRecord.js';
+import A2ARecord from '../A2A/A2ARecord.js';
 import axios from 'Axios';
 import { Agent } from 'https';
 import Person from '../Person.js';
+import { show } from '../API.js';
 
-export default class OAEventRecord implements EventRecord {
+export default class OARecord implements Record {
     readonly place: string = '';
     readonly type: string = '';
     readonly source: string = '';
@@ -41,7 +42,6 @@ export default class OAEventRecord implements EventRecord {
     }
 
     async fetch() {
-        const res = await axios.get(this.url, { httpsAgent: new Agent({ rejectUnauthorized: false }) });
-        return new A2AEventRecord(res.data[0])
+        return show({ archive_id: this.archive.id, guid: this.guid })
     };
 }

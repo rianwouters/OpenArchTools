@@ -1,10 +1,10 @@
 import '../util/ArraytoObject.js'
-import EventRecord from '../EventRecord.js';
+import Record from '../Record.js';
 import A2APerson from './A2APerson.js';
 import A2ARelationJson from './json/A2ARelationJson.js';
-import A2AEventRecordJson from './json/A2AEventRecordJson.js';
+import A2ARecordJson from './json/A2ARecordJson.js';
 
-export default class A2AEventRecord implements EventRecord {
+export default class A2ARecord implements Record {
     readonly id: string;
     // TODO implement
     readonly guid: string = '';
@@ -20,8 +20,7 @@ export default class A2AEventRecord implements EventRecord {
     readonly relations: { type: String, person: A2APerson }[];
 
     // TODO specify type of o
-    constructor(o: A2AEventRecordJson) {
-        console.log(JSON.stringify(o, null, 2));
+    constructor(o: A2ARecordJson) {
         const {
             a2a_Person: persons,
             a2a_Event: {

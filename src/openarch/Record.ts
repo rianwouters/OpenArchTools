@@ -1,7 +1,7 @@
 import Archive from './Archive.js';
 import Person from './Person.js';
 
-export default interface EventRecord {
+export default interface Record {
     readonly place: string;
     readonly type: string;
     readonly source: string;
