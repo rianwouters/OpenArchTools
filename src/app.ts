@@ -4,8 +4,7 @@ try {
   let recs: Record[];
 
   recs = await search({
-    query: '(~Anna) Fran*"',
-    when: '1715-1725',
+    query: '*"',
     sort: 5,
     number_show: 100,
     eventplace: 'Breugel',

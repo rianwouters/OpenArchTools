@@ -13,7 +13,7 @@ const _Api = axios.create({
 // TODO: specify docs type
 async function _query(path: string, params: any): Promise<object[]> {
     const res = await _Api.get(path, { params });
-
+    console.log(params.start);
     if (!res) throw "No response";
 
     if (!res.data) throw "No data in response";
@@ -21,12 +21,19 @@ async function _query(path: string, params: any): Promise<object[]> {
     if (!res.data.response)
         return res.data;
 
-    return res.data.response.docs;
+    let docs = res.data.response.docs;
+
+    if (res.data.response.number_found >  (params.start || 0) + res.data.response.docs.length) {
+        params.start = (params.start || 0) + res.data.response.docs.length;
+        docs += await _query(path, params);
+    }
+
+    return docs;
 };
 
 type SearchParams = {
     query: string,
-    when: string,
+    when?: string,
     eventplace?: string,
     relationtype?: string, // TODO make this an enumeration
     source_type?: string, // TODO make this an enumeration
